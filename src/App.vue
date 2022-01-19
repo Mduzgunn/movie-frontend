@@ -1,17 +1,25 @@
 <template>
   <div id="app">
-    <Publishers />
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <router-link to="/" class="navbar-brand">Publisher Manager</router-link>
+        <div class="collapse navbar-collapse">
+          <div class="navbar-nav">
+            <router-link to="/publishers" class="nav-link">Publisher List</router-link>
+            <router-link to="/add" class="nav-link">Add New Publisher</router-link>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <router-view />
+    </div>
   </div>
 </template>
 
 <script>
-import Publishers from './components/Publisher.vue'
-
 export default {
-  name: 'App',
-  components: {
-    Publishers
-  }
+  name: 'App'
 }
 </script>
 

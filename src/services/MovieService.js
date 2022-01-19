@@ -1,12 +1,18 @@
-import axios from 'axios';
+import http from '../http-common'
 
-const PUBLISHER_API_BASE_URL = 'http://localhost:8082/v2/publisher';
-
-class MovieService {
-
-    getPublishers() {
-        return axios.get(PUBLISHER_API_BASE_URL);
+class CustomerDataService {
+    getAll() {
+        return http.get('/publisher')
     }
+
+    get(id) {
+        return http.get(`/publisher/${id}`)
+    }
+
+    create(data) {
+        return http.post('/publisher', data)
+    }
+
 }
 
-export default new MovieService();
+export default new CustomerDataService()
