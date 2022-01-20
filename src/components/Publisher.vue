@@ -13,6 +13,7 @@
                     <tr v-for="publisher in publishers" v-bind:key="publisher.id">
                         <td> {{publisher.id }}</td>
                         <td> {{publisher.name }}</td>
+                         <td><a :href="'/publishers/' + publisher.id" class="btn btn-primary">Edit</a></td>
                     </tr>
                 </tbody>
             </table>

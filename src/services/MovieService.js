@@ -13,6 +13,11 @@ class CustomerDataService {
         return http.post('/publisher', data)
     }
 
+
+    delete(id) {
+        return http.delete(`/publisher/${id}`)
+    }
+
 }
 
 export default new CustomerDataService()

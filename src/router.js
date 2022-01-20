@@ -13,6 +13,12 @@ export default new Router({
                 import ('./components/Publisher')
         },
         {
+            path: '/publishers/:id',
+            name: 'edit-publisher',
+            component: () =>
+                import ('./components/EditPublisher')
+        },
+        {
             path: '/add',
             name: 'add-publisher',
             component: () =>
