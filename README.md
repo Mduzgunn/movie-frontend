@@ -1,3 +1,7 @@
+# movie backend
+
+https://github.com/Mduzgunn/movie-app-v2
+
 # movie-frontend
 
 ## Project setup
