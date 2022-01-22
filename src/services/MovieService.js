@@ -1,6 +1,6 @@
 import http from '../http-common'
 
-class CustomerDataService {
+class MovieService {
     getAll() {
         return http.get('/publisher')
     }
@@ -18,6 +18,62 @@ class CustomerDataService {
         return http.delete(`/publisher/${id}`)
     }
 
+    //-----------------Director---------------------//
+
+    getAllDirector() {
+        return http.get('/director')
+    }
+
+    getDirector(id) {
+        return http.get(`/director/${id}`)
+    }
+
+    createDirector(data) {
+        return http.post('/director', data)
+    }
+
+
+    deleteDirector(id) {
+        return http.delete(`/director/${id}`)
+    }
+
+    //-----------------Movie---------------------//
+
+    getAllMovie() {
+        return http.get('/movie')
+    }
+
+    getMovie(id) {
+        return http.get(`/movie/${id}`)
+    }
+
+    createMovie(data) {
+        return http.post('/movie', data)
+    }
+
+
+    deleteMovie(id) {
+        return http.delete(`/movie/${id}`)
+    }
+
+    //-----------------Actor---------------------//
+
+    getAllActor() {
+        return http.get('/actor')
+    }
+
+    getActor(id) {
+        return http.get(`/actor/${id}`)
+    }
+
+    createActor(data) {
+        return http.post('/actor', data)
+    }
+
+
+    deleteActor(id) {
+        return http.delete(`/actor/${id}`)
+    }
 }
 
-export default new CustomerDataService()
+export default new MovieService()

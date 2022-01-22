@@ -15,12 +15,15 @@
                 Save Publisher successfully!
             </div>
             <button @click="newPublisher" class="btn btn-primary">Add New Publisher</button>
-        </div>
+            <button class="btn btn-primary"><a href="/publishers">publisher list</a></button>
+            
+
+        </div>  
     </div>
 </template>
 
 <script>
-import MovieService from '../services/MovieService'
+import MovieService from '../../services/MovieService'
 
 export default {
     name: 'add-publisher',
