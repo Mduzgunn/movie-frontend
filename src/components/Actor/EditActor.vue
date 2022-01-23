@@ -9,7 +9,7 @@
 
                 <label for="movieList" class="form-label">movieList</label>
                 <!-- <input type="text" class="form-control" name="movieList" v-model="movie.name"> -->
-                <select name="movieList" id="moviList">
+                <select name="movieList" id="movieList">
                      <option v-for="(movie,i) in currentActor.movieList" :key="i" :value="movie.id">{{movie.name}}</option> 
                      </select>
             </div>
@@ -45,7 +45,7 @@ export default {
                 })
         }, 
         updateActor() {
-            MovieService.update(this.currentActor.id, this.currentActor)
+            MovieService.updateActor(this.currentActor.id, this.currentActor)
                 .then(() => {
                     this.message = 'The actor was updated!'
                 })

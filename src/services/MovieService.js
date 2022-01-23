@@ -13,6 +13,9 @@ class MovieService {
         return http.post('/publisher', data)
     }
 
+    update(id, data) {
+        return http.put(`/publisher/${id}`, data)
+    }
 
     delete(id) {
         return http.delete(`/publisher/${id}`)
@@ -51,6 +54,9 @@ class MovieService {
         return http.post('/movie', data)
     }
 
+    updateMovie(id, data) {
+        return http.put(`/movie/${id}`, data)
+    }
 
     deleteMovie(id) {
         return http.delete(`/movie/${id}`)
@@ -70,6 +76,9 @@ class MovieService {
         return http.post('/actor', data)
     }
 
+    updateActor(id, data) {
+        return http.put(`/actor/${id}`, data)
+    }
 
     deleteActor(id) {
         return http.delete(`/actor/${id}`)
