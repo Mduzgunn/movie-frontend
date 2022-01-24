@@ -22,7 +22,7 @@
                 <td>{{actor.lastName}}</td>
                 <td>
                     <ul>
-                        <li v-for="(movie,i) in actor.movieList" :key="i">{{movie.name}}</li>
+                        <li v-for="(movie,i) in actor.movie" :key="i">{{movie.name}}</li>
                     </ul>
                 </td>
 

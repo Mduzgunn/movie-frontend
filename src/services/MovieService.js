@@ -42,6 +42,8 @@ class MovieService {
 
     //-----------------Movie---------------------//
 
+
+
     getAllMovie() {
         return http.get('/movie')
     }

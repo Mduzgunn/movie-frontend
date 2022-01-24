@@ -24,8 +24,8 @@
         </thead>
         <tbody>
             <tr v-for="movie in movies" v-bind:key="movie.id">
-                <td> {{movie.id }}</td>
-                <td> {{movie.name }}</td>
+                <td>{{movie.id }}</td>
+                <td>{{movie.name }}</td>
                 <td>{{movie.releaseYear}}</td>
                 <td>{{movie.description}}</td>
                 <td>{{movie.duration}}</td>

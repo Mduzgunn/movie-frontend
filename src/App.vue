@@ -55,4 +55,11 @@ tr{color:#03dac6;}
 a {
   text-decoration: none;
 }
+select{
+
+    color: chartreuse;
+}
+option{
+    background-color: black;
+}
 </style>
