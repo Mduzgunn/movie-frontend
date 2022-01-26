@@ -39,7 +39,6 @@ export default {
     text-align: center;
     margin-top: 60px;
         background-color: #121212;
-
 }
 
 body,option {

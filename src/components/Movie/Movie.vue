@@ -31,8 +31,17 @@
                 <td>{{movie.duration}}</td>
                 <td>{{movie.media}}</td>
                 <td>{{movie.isActive}}</td>
-                <td>{{movie.genre}}</td>
-                <td>{{movie.actors}}</td>
+                <td>
+                    <ul>
+                        <li v-for="(genre,i) in movie.genre" :key="i">{{genre}}</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li v-for="(actor,i) in movie.actors" :key="i">{{actor.firstName}}</li>
+                    </ul>
+                </td>
+
                 <td>{{movie.director}}</td>
                 <td>{{movie.publisherName}}</td>
                 <td>{{movie.reviews}}</td>
