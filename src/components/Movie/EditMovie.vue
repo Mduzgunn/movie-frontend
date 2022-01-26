@@ -3,12 +3,14 @@
     <div class="mb-3">
         <label for="media" class="form-label">media</label>
         <input type="text" class="form-control" id="media" required name="media" v-model="currentMovie.media">
-
+    </div>
+    <div class="mb-3">
         <label for="isActive" class="form-label">isActive</label>
         <input type="checkbox" id="isActive" required name="isActive" v-model="currentMovie.isActive">
-
+    </div>
+    <div class="select">
         <label for="actorList" class="form-label">actor</label>
-        <select name="actorList" id="actorList" @change="onChange($event)">
+        <select name="actorList" class="form-select" id="actorList" @change="onChange($event)">
             <option v-for="actor in actors" :key="actor.id" :value="actor.id">{{actor.firstName}}</option>
         </select>
     </div>
@@ -34,14 +36,14 @@ export default {
             movies: [],
             message: '',
             actors: [],
-            bitane:[]
+            bitane: []
         }
     },
     methods: {
         getAllActor() {
             MovieService.getAllActor()
                 .then(response => {
-                    this.actors=response.data
+                    this.actors = response.data
                 })
         },
         onChange(e) {
@@ -53,7 +55,6 @@ export default {
             MovieService.getAllMovie()
                 .then(response => {
                     this.movies = response.data
-
                 })
         },
         getMovie(id) {

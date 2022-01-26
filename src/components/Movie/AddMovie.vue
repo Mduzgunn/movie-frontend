@@ -30,20 +30,25 @@
             <input type="text" class="form-control" id="genre" name="genre" v-model="movie.genre">
         </div>
 
-        <div class="mb-3">
-            <label for="actors" class="form-label">actors</label>
-            <input type="text" class="form-control" id="actors" name="actors" v-model="movie.actors">
+        <div class="select">
+            <label for="actorList" class="form-label">actor</label>
+            <select name="actorList" class="form-select" id="actorList" @change="onChangeActor($event)">
+                <option v-for="actor in actors" :key="actor.id" :value="actor.id">{{actor.firstName}}</option>
+            </select>
         </div>
 
-        <div class="mb-3">
+        <div class="select">
             <label for="director" class="form-label">director</label>
-            <input type="text" class="form-control" id="director" required name="director" v-model="movie.director">
+            <select name="director" class="form-select" id="director" @change="onChangeDirector($event)">
+                <option v-for="director in directors" :key="director.id" :value="director.id">{{director.name}}</option>
+            </select>
         </div>
 
-
-        <div class="mb-3">
-            <label for="publisherId" class="form-label">publisherId</label>
-            <input type="text" class="form-control" id="director" name="publisherId" v-model="movie.publisherId">
+        <div class="select">
+            <label for="publisher" class="form-label">publisher</label>
+            <select name="publisher" class="form-select" id="publisher" @change="onChangePublisher($event)">
+                <option v-for="publisher in publishers" :key="publisher.id" :value="publisher.id">{{publisher.name}}</option>
+            </select>
         </div>
 
         <div class="mb-3">
@@ -65,6 +70,13 @@ export default {
     name: 'add-movie',
     data() {
         return {
+            actors: [],
+            directors: "",
+            publishers: "",
+            a: [],
+            d:"",
+            p:"",
+            submitted: false,
             movie: {
                 id: null,
                 name: "",
@@ -74,14 +86,43 @@ export default {
                 media: "",
                 active: "",
                 genre: [],
-                actors: [],
+                actorIds: [],
                 director: "",
                 publisherId: ""
-            },
-            submitted: false
+            }
+
         }
     },
     methods: {
+        getAllActor() {
+            MovieService.getAllActor()
+                .then(response => {
+                    this.actors = response.data
+                })
+        },
+        getAllDirector() {
+            MovieService.getAllDirector()
+                .then(response => {
+                    this.directors = response.data
+                })
+        },
+        getAll() {
+            MovieService.getAll()
+                .then(response => {
+                    this.publishers = response.data
+                })
+        },
+        onChangeActor(e) {
+            this.a.push(e.target.value)
+            this.movie.actorIds = this.a
+        },
+        onChangeDirector(e) {
+            this.movie.director = e.target.value
+        },
+        onChangePublisher(e) {
+            this.movie.publisherId = e.target.value
+        },
+
         saveMovie() {
             var data = {
                 name: this.movie.name,
@@ -91,9 +132,9 @@ export default {
                 media: this.movie.media,
                 active: this.movie.active,
                 genre: this.movie.genre,
-                actors: this.movie.actors,
+                actorIds: this.movie.actorIds,
                 director: this.movie.director,
-                publisherId:this.movie.publisherId
+                publisherId: this.movie.publisherId
             }
             MovieService.createMovie(data)
                 .then(response => {
@@ -108,6 +149,12 @@ export default {
             this.submitted = false
             this.movie = {}
         }
+    },
+    mounted() {
+        this.getAllActor(),
+            this.getAllDirector(),
+            this.getAll()
     }
+
 }
 </script>

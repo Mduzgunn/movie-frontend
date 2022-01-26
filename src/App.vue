@@ -42,7 +42,7 @@ export default {
 
 }
 
-body {
+body,option {
     background-color: #121212;
 }
 
@@ -51,15 +51,22 @@ h1,h2,h3,h4,h5,h6,p,label {
 }
 td{color: ghostwhite;}
 tr{color:#03dac6;}
-
+#isActive{
+    accent-color: #03dac6;
+}
 a {
   text-decoration: none;
 }
-select{
 
-    color: chartreuse;
+select{
+color:#03dac6;
 }
-option{
-    background-color: black;
+.form-select,.form-control{
+    width: 50%;
+    margin: auto;
+    color:#03dac6;
+    background-color:#383b3c ;
+
 }
+
 </style>
